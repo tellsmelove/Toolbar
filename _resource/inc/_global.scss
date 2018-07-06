@@ -1,0 +1,80 @@
+// #region Global
+body{
+    min-height: 100vh;
+}
+
+a:hover, a:focus{
+    @include effect(all, .3s, linear);
+    text-decoration: none!important;
+}
+.nolist{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.effect{
+    @include effect;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,{
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    margin: 0;
+    appearance: none;
+    -moz-appearance: textfield;
+}
+.line-0{
+    line-height: 0!important;
+}
+
+.desk-all-full{
+    height: 100vh;
+}
+img{
+    display: inline-block;
+    max-width: 100%;
+}
+.position-relative, .uk-position-relative{
+    &.uk-icon{
+        // position: relative;
+        svg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+    }
+}
+@include uikit-alert-bg('success', var(--success), var(--light));
+@include uikit-alert-bg('danger', var(--danger), var(--white));
+@include uikit-alert-bg('info', var(--info), var(--white));
+@include uikit-alert-bg('warning', var(--warning), var(--dark));
+@include uikit-alert-bg('primary', var(--primary), var(--white));
+// #endregion
+@include md{
+    .desk-md-full{
+        min-height: 100vh;
+    }
+    .nodesk{
+        .uk-offcanvas{
+            position: static!important;
+            display: block;
+        }
+        .uk-offcanvas-bar{
+            position: static;
+            width: 100%;
+            background-color: $nocolor;
+            padding: 0;
+            @include transform(unset);
+        }
+    }
+}
+@include sm{
+    .desk-full{
+        min-height: 100vh;
+    }
+}
