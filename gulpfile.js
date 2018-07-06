@@ -51,15 +51,15 @@ const _struct = [
 
 gulp.task('copy', () => {
     for(let _str of _struct){
-        _log(`${_str.in} -> ${project.name}/${_str.to}`)
+        _log(`${_str.in} -> project/${project.name}/${_str.to}`)
         gulp.src(`_resource/${_str.in}`)
-        .pipe(gulp.dest(`${project.name}/${_str.to}`));
+        .pipe(gulp.dest(`project/${project.name}/${_str.to}`));
     }
 })
 
 // #region Sass
 gulp.task('sass', () => {
-    gulp.src(`${project.name}/dist/css/main.scss`)
+    gulp.src(`project/${project.name}/dist/css/main.scss`)
         .pipe(sourcemaps.init())
         .pipe(
             plumber({
@@ -72,7 +72,7 @@ gulp.task('sass', () => {
         .pipe(sass())
         // .pipe(sourcemaps.write())
         // .pipe(minify())
-        .pipe(gulp.dest(`${project.name}/dist/css`))
+        .pipe(gulp.dest(`project/${project.name}/dist/css`))
 });
 
 gulp.task('fw', () => {
@@ -91,7 +91,7 @@ gulp.task('fw', () => {
 });
 
 gulp.task('watch-sass', () => {
-    gulp.watch([`${project.name}/dist/css/*.scss`],
+    gulp.watch([`project/${project.name}/dist/css/*.scss`],
     function () {
         gulp.run('sass');
     });
@@ -100,7 +100,7 @@ gulp.task('watch-sass', () => {
 
 // #region Ejs
 gulp.task('ejs', () => {
-    gulp.src(`${project.name}/dev/*.ejs`)
+    gulp.src(`project/${project.name}/dev/*.ejs`)
         .pipe(plumber({
             errorHandler: function (error) {
                 console.log(error.toString());
@@ -109,14 +109,14 @@ gulp.task('ejs', () => {
         })
         )
         .pipe(ejs({}, {}, { ext: '.html' }))
-        .pipe(gulp.dest(project.name))
+        .pipe(gulp.dest(`project/${project.name}`))
         // .pipe(browserSync.stream())
 })
 // #endregion
 
 // #region Pug
 gulp.task('pug', () => {
-    gulp.src(`${project.name}/dev/*.pug`)
+    gulp.src(`project/${project.name}/dev/*.pug`)
         .pipe(
             plumber({
                 errorHandler: function (error) {
@@ -126,12 +126,12 @@ gulp.task('pug', () => {
             })
         )
         .pipe(pug({ pretty: true }))
-        .pipe(gulp.dest(project.name))
+        .pipe(gulp.dest(`project/${project.name}`))
         // .pipe(browserSync.stream())
 })
 gulp.task('watch-template', () => {
     gulp.watch([
-        `${project.name}/dev/**/*.${project.eng}`],
+        `project/${project.name}/dev/**/*.${project.eng}`],
         function () {
             gulp.run(project.eng);
         });
@@ -140,7 +140,7 @@ gulp.task('watch-template', () => {
 
 // #region watchin 
 gulp.task('reload', () => {
-    gulp.watch([`${project.name}/dist/css/*.css`, `${project.name}/*.html`]).on('change', browserSync.reload);
+    gulp.watch([`project/${project.name}/dist/css/*.css`, `project/${project.name}/*.html`]).on('change', browserSync.reload);
 })
 
 gulp.task('browser-sync', function () {
