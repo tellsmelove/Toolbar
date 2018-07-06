@@ -12,7 +12,7 @@ const gulp = require('gulp')
 
 const _arr = process.argv;
 // const project = path.join(__dirname, process.argv[process.argv.length - 1 ]);
-const loadDataProject = JSON.parse(fs.readFileSync(`./${_arr[_arr.length - 1 ]}/package.json`))
+const loadDataProject = JSON.parse(fs.readFileSync(`./project/${_arr[_arr.length - 1 ]}/package.json`))
 var project = {
     name: loadDataProject.name,
     eng: loadDataProject.eng
