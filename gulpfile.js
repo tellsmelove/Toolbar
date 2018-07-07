@@ -144,9 +144,10 @@ gulp.task('reload', () => {
 })
 
 gulp.task('browser-sync', function () {
+    _log(project)
     browserSync.init({
         server: {
-            baseDir: project
+            baseDir: `project/${project.name}`
         }
     });
     gulp.run('reload')
