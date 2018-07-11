@@ -267,8 +267,13 @@ $nocolor: transparent;
     }
 }
 
-@mixin md($w: 769px) {
-    @media screen and (min-width: $w) {
+@mixin md($min-w: 769px) {
+    @media screen and (min-width: $min-w) {
+        @content;
+    }
+}
+@mixin table($min-w: 851px, $max-w: 960px) {
+    @media screen and (min-width: $min-w) and (max-width: $max-w) {
         @content;
     }
 }
