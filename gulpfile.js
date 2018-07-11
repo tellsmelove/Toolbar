@@ -99,7 +99,6 @@ gulp.task('fw', () => {
             })
         )
         .pipe(sass())
-        .pipe(minify())
         .pipe(gulp.dest('./_resource/css'))
         .pipe(
             postcss([
