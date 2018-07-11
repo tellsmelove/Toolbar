@@ -1,7 +1,8 @@
 #Ghinlop SmartTool - version 2.3.0
 Smart Tool help compiles for EJS, Nunjucks, PUG engine and Scss
 
-##Changelog
+## Changelog
+
 - Add compile engines:
     - EJS
     - Nunjucks
@@ -15,25 +16,25 @@ Smart Tool help compiles for EJS, Nunjucks, PUG engine and Scss
 - Add Browser-sync and reload when css or engine compile success
 - Support add default folder & file for new project
 
-##Script Run Task
+## Script Run Task
 
-###Run Css Compile
+### Run Css Compile
 ```npm
 yarn css --n [name-project]
 ```
-###Run Engine Compile
+### Run Engine Compile
 ```npm
 yarn html --n [name-project]
 ```
-###Run new Compile
+### Run new Compile
 ```npm
 yarn new --n [name-project]
 ```
-###Run new Compile
+### Run new Compile
 ```npm
 yarn new --n [name-project]
 ```
-###Run Server
+### Run Server
 ```npm
 yarn server --n [name-project]
 ```
