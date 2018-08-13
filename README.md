@@ -1,8 +1,13 @@
-#Ghinlop SmartTool - version 2.3.0
+#Ghinlop SmartTool - version 2.3.1
 Smart Tool help compiles for EJS, Nunjucks, PUG engine and Scss
 
 ## Changelog
+### 2.3.1
+- Fixed Server Live not working
+- Fixed Compiles for nunjucks
+- Remove other modules dont request
 
+### 2.3.0
 - Add compile engines:
     - EJS
     - Nunjucks
