@@ -38,10 +38,10 @@ if (checkInfo === false) {
     .pipe(gulp.dest(name));
 
   _log(`
-        ===================================
-        Info.json created!
-        Please re-config value in info.json
-        ===================================
+        ==========================================
+            Info.json created!
+            Please re-config value in info.json
+        ==========================================
         `)
 }
 configs = JSON.parse(fs.readFileSync(`${name}/info.json`))
@@ -90,7 +90,7 @@ gulp.task('fw', () => {
       })
     )
     .pipe(sass())
-    .pipe(gulp.dest('./_resource/css'))
+    .pipe(gulp.dest('./_resource/static/css'))
     .pipe(
       postcss([
         mqpacker({
