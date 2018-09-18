@@ -1,17 +1,17 @@
-const gulp = require('gulp'),
-  fs = require('fs'),
-  cssnano = require('cssnano'),
-  postcss = require('gulp-postcss'),
-  autoprefixer = require('autoprefixer'),
-  browserSync = require('browser-sync'),
-  plumber = require('gulp-plumber'),
-  nunjucks = require('gulp-nunjucks-render'),
-  sass = require('gulp-sass'),
-  ejs = require('gulp-ejs'),
-  pug = require('gulp-pug'),
-  argv = require('yargs').argv,
-  mqpacker = require('css-mqpacker'),
-  htmlmin = require('gulp-htmlmin');
+const gulp              = require('gulp'),
+      fs                = require('fs'),
+      cssnano           = require('cssnano'),
+      postcss           = require('gulp-postcss'),
+      autoprefixer      = require('autoprefixer'),
+      browserSync       = require('browser-sync'),
+      plumber           = require('gulp-plumber'),
+      nunjucks          = require('gulp-nunjucks-render'),
+      sass              = require('gulp-sass'),
+      ejs               = require('gulp-ejs'),
+      pug               = require('gulp-pug'),
+      argv              = require('yargs').argv,
+      mqpacker          = require('css-mqpacker'),
+      htmlmin           = require('gulp-htmlmin');
 
 let configs, css_path, dev_path, _struct
 let name = `../${argv.n}`,
@@ -144,7 +144,7 @@ gulp.task('scss', () => {
         }
       })
     )
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest(css_path))
     .pipe(
       postcss(isPlugin)
@@ -157,7 +157,7 @@ gulp.task('scss', () => {
  */
 
 gulp.task('watch-scss', () => {
-  gulp.watch([`${css_path}/*.scss`],
+  gulp.watch([`${css_path}/*.scss`, `${css_path}/**/*.scss`],
     function() {
       gulp.run('scss');
     });
@@ -210,7 +210,7 @@ gulp.task('engine', () => {
   }
 
   if (configs.engine === 'pug') {
-    gulp.src(`${dev_path}/*.ext`)
+    gulp.src(`${dev_path}/*.${configs.ext}`)
       .pipe(pug({
         pretty: true
       })).pipe(
@@ -257,7 +257,7 @@ gulp.task('watch-template', () => {
 // #region Server Loading
 gulp.task('reload', () => {
   gulp.watch([
-    `${css_path}/main.css`,
+    `${css_path}/style.css`,
     `${name}/*.html`
   ]).on('change', browserSync.reload);
 })
