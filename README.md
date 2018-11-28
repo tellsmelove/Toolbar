@@ -2,6 +2,9 @@
 Smart Tool help compiles for EJS, Nunjucks, PUG engine and Scss
 
 ## Changelog
+### 2.3.2
+- Add Edge Template Engine Compile
+
 ### 2.3.1
 - Fixed Server Live not working
 - Fixed Compiles for nunjucks

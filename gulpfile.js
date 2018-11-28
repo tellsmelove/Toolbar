@@ -1,17 +1,18 @@
-const gulp              = require('gulp'),
-      fs                = require('fs'),
-      cssnano           = require('cssnano'),
-      postcss           = require('gulp-postcss'),
-      autoprefixer      = require('autoprefixer'),
-      browserSync       = require('browser-sync'),
-      plumber           = require('gulp-plumber'),
-      nunjucks          = require('gulp-nunjucks-render'),
-      sass              = require('gulp-sass'),
-      ejs               = require('gulp-ejs'),
-      pug               = require('gulp-pug'),
-      argv              = require('yargs').argv,
-      mqpacker          = require('css-mqpacker'),
-      htmlmin           = require('gulp-htmlmin');
+const gulp = require('gulp'),
+  fs = require('fs'),
+  cssnano = require('cssnano'),
+  postcss = require('gulp-postcss'),
+  autoprefixer = require('autoprefixer'),
+  browserSync = require('browser-sync'),
+  plumber = require('gulp-plumber'),
+  nunjucks = require('gulp-nunjucks-render'),
+  sass = require('gulp-sass'),
+  ejs = require('gulp-ejs'),
+  pug = require('gulp-pug'),
+  argv = require('yargs').argv,
+  mqpacker = require('css-mqpacker'),
+  htmlmin = require('gulp-htmlmin'),
+  gulpEdge = require('gulp-edgejs');
 
 let configs, css_path, dev_path, _struct
 let name = `../${argv.n}`,
@@ -47,30 +48,38 @@ if (checkInfo === false) {
 configs = JSON.parse(fs.readFileSync(`${name}/info.json`))
 css_path = `${name}/${configs.path_static}/${configs.css_path}`
 dev_path = `${name}/${configs.dev_path}`
-_struct = [{ in: './_resource/css/*.*',
-    to: `${css_path}/`
-  },
-  { in: './_resource/inc/*.*',
-    to: `${css_path}/inc/`
-  },
-  { in: './_resource/js/*.js',
-    to: `${name}/${configs.path_static}/js/`
-  },
-  { in: './_resource/fonts/*.*',
-    to: `${name}/${configs.path_static}/fonts/`
-  },
-  { in: './_resource/images/*.*',
-    to: `${name}/${configs.path_static}/images/`
-  },
-  { in: `./_resource/dev/${configs.engine}/*.*`,
-    to: `${dev_path}/`
-  },
-  { in: `./_resource/dev/${configs.engine}/layout/*.*`,
-    to: `${dev_path}/layout/`
-  },
-  { in: `./_resource/dev/${configs.engine}/components/*.*`,
-    to: `${dev_path}/components/`
-  }
+_struct = [{
+  in: './_resource/css/*.*',
+  to: `${css_path}/`
+},
+{
+  in: './_resource/inc/*.*',
+  to: `${css_path}/inc/`
+},
+{
+  in: './_resource/js/*.js',
+  to: `${name}/${configs.path_static}/js/`
+},
+{
+  in: './_resource/fonts/*.*',
+  to: `${name}/${configs.path_static}/fonts/`
+},
+{
+  in: './_resource/images/*.*',
+  to: `${name}/${configs.path_static}/images/`
+},
+{
+  in: `./_resource/dev/${configs.engine}/*.*`,
+  to: `${dev_path}/`
+},
+{
+  in: `./_resource/dev/${configs.engine}/layout/*.*`,
+  to: `${dev_path}/layout/`
+},
+{
+  in: `./_resource/dev/${configs.engine}/components/*.*`,
+  to: `${dev_path}/components/`
+}
 ]
 if (configs.minify) {
   isPlugin.push(cssnano())
@@ -83,7 +92,7 @@ gulp.task('fw', () => {
   gulp.src(`./_resource/*.scss`)
     .pipe(
       plumber({
-        errorHandler: function(error) {
+        errorHandler: function (error) {
           console.log(error.toString());
           this.emit('end');
         }
@@ -121,7 +130,7 @@ gulp.task('copy', () => {
       .pipe(gulp.dest(_str.to))
       .pipe(
         plumber({
-          errorHandler: function(error) {
+          errorHandler: function (error) {
             console.log(error.toString());
             this.emit('end');
           }
@@ -138,13 +147,13 @@ gulp.task('scss', () => {
   gulp.src(`${css_path}/*.scss`)
     .pipe(
       plumber({
-        errorHandler: function(error) {
+        errorHandler: function (error) {
           console.log(error.toString());
           this.emit('end');
         }
       })
     )
-    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(gulp.dest(css_path))
     .pipe(
       postcss(isPlugin)
@@ -158,7 +167,7 @@ gulp.task('scss', () => {
 
 gulp.task('watch-scss', () => {
   gulp.watch([`${css_path}/*.scss`, `${css_path}/**/*.scss`],
-    function() {
+    function () {
       gulp.run('scss');
     });
 })
@@ -185,7 +194,7 @@ gulp.task('engine', () => {
       }))
       .pipe(
         plumber({
-          errorHandler: function(error) {
+          errorHandler: function (error) {
             console.log(error.toString());
             this.emit('end');
           }
@@ -200,7 +209,21 @@ gulp.task('engine', () => {
         ext: '.html'
       })).pipe(
         plumber({
-          errorHandler: function(error) {
+          errorHandler: function (error) {
+            console.log(error.toString());
+            this.emit('end');
+          }
+        })
+      )
+      .pipe(gulp.dest(`${name}`));
+  }
+  if (configs.engine === 'edge') {
+    gulp.src(`${dev_path}/*.${configs.ext}`)
+      .pipe(gulpEdge({}, {
+        ext: "html"
+      })).pipe(
+        plumber({
+          errorHandler: function (error) {
             console.log(error.toString());
             this.emit('end');
           }
@@ -215,7 +238,7 @@ gulp.task('engine', () => {
         pretty: true
       })).pipe(
         plumber({
-          errorHandler: function(error) {
+          errorHandler: function (error) {
             console.log(error.toString());
             this.emit('end');
           }
@@ -243,10 +266,10 @@ gulp.task('minfyHTML', () => {
 
 gulp.task('watch-template', () => {
   gulp.watch([
-      `${dev_path}/*.${configs.ext}`,
-      `${dev_path}/**/*.${configs.ext}`
-    ],
-    function() {
+    `${dev_path}/*.${configs.ext}`,
+    `${dev_path}/**/*.${configs.ext}`
+  ],
+    function () {
       gulp.run('engine');
     }
   );
@@ -262,7 +285,7 @@ gulp.task('reload', () => {
   ]).on('change', browserSync.reload);
 })
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
       baseDir: name
