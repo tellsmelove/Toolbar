@@ -5,10 +5,7 @@
   "scripts": {
     "server": "gulp browser-sync",
     "html": "gulp watch-template",
-    "css": "gulp watch-scss",
-    "vuta": "gulp fw",
-    "new": "gulp copy",
-    "be": "gulp watch-pretyHTML"
+    "css": "gulp watch-scss"
   },
   "main": "gulpfile.js",
   "author": "Ghin Lop <ghinlop@gmail.com>",
@@ -18,19 +15,14 @@
     "browser-sync": "^2.23.7",
     "css-mqpacker": "^6.0.2",
     "cssnano": "^4.0.0",
+    "dotenv": "^6.2.0",
     "gulp": "^3.9.1",
     "gulp-edgejs": "^0.2.4",
-    "gulp-ejs": "^3.1.3",
-    "gulp-htmlmin": "^4.0.0",
     "gulp-nunjucks-render": "^2.2.2",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.0",
-    "st": "^1.2.2",
-    "uikit": "^3.0.0-rc.12",
-    "yargs": "^12.0.1"
+    "st": "^1.2.2"
   }
 }

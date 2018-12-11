@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{style}}/bootstrap.min.css">
+    <link rel="stylesheet" href="{{style}}/font-awesome.css">
+    <link rel="stylesheet" href="{{style}}/swiper.min.css">
+    <link rel="stylesheet" href="{{style}}/app.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <header id="header">
+
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+
+        </footer>
+        <div class="overlay" v-on:click="menu_active = !menu_active" v-if="menu_active"></div>
+    </div>
+    <script src="{{script}}/jquery-3.3.1.min.js"></script>
+    <script src="{{script}}/popper.min.js"></script>
+    <script src="{{script}}/bootstrap.js"></script>
+    <script src="{{script}}/swiper.min.js"></script>
+    <script src="{{script}}/vue.js"></script>
+    <script src="{{script}}/app.js"></script>
+    {% block script %}{% endblock %}
+</body>
+
+</html>
