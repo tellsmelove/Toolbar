@@ -1,9 +1,18 @@
-# Smart Tools 4.0.0-beta
+# ***Smart Tools 4.0.0-beta***
 Smart Tool Compiles for Nunjucks Template Engine, SCSS, & JS
 
-## How to usage
+## ***How to usage***
 
-### Watch for SCSS, JAVASCRIPT
+- Please run script update default library node_module before use.
+```
+npm install
+```
+or
+```
+yarn
+```
+
+### ***Watch for SCSS, JAVASCRIPT***
 ***Default Watch***
 ```
 npm run watch
@@ -26,7 +35,7 @@ Add more flag after command
 --js=name_file_watch
 ```
 
-### Build SCSS, JAVASCRIPT to mode Production
+### ***Build SCSS, JAVASCRIPT to mode Production***
 ```
 npm run build
 ``` 
@@ -35,7 +44,7 @@ or
 yarn build
 ```
 
-### Watch & Compile NUNJUCKS to HTML
+### ***Watch & Compile NUNJUCKS to HTML***
 ```
 npm run html
 ``` 
@@ -44,8 +53,8 @@ or
 yarn html
 ```
 
-### Copy BOOTSTRAP (4.x), POPPER.JS, FONTAWESOME (4.7.3) lib to production
+### ***Copy BOOTSTRAP (4.x), POPPER.JS, FONTAWESOME (4.7.3) lib to production***
 Add more flag ```--copy``` when use **build** or **watch** for SCSS & JAVASCRIPT
 
-### Run Server Watch
+### ***Run Server Watch***
 Add more flag ```--server``` when use **build** or **watch** for SCSS & JAVASCRIPT
