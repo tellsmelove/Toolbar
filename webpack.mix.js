@@ -73,7 +73,14 @@ function server(name) {
     mix.browserSync({
         proxy: false,
         port: '3000',
-        server: { baseDir: 'dist/' + name + '/' }
+        server: { baseDir: 'dist/' + name + '/' },
+        files: [
+            './dist/**/*.html',
+            './dist/**/public/css/*.css',
+            './dist/**/public/js/*.js'
+        ],
+        reload: true,
+        open: false,
     });
 }
 // mix.webpackConfig({
