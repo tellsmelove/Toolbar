@@ -1,28 +1,37 @@
 {
-  "name": "small-tool",
-  "version": "2.3.0",
-  "description": "Small Tool Compiler SCSS, EJS, PUG",
-  "scripts": {
-    "server": "gulp browser-sync",
-    "html": "gulp watch-template",
-    "css": "gulp watch-scss"
-  },
-  "main": "gulpfile.js",
+  "name": "smart-tool",
+  "version": "4.0.0",
+  "description": "Smart Tool Compiles for Nunjucks Template Engine, Sass, & JS",
+  "main": "index.js",
+  "repository": "git@github.com:ghinlop/smart-tool.git",
   "author": "Ghin Lop <ghinlop@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "autoprefixer": "^8.6.5",
-    "browser-sync": "^2.23.7",
-    "css-mqpacker": "^6.0.2",
-    "cssnano": "^4.0.0",
-    "dotenv": "^6.2.0",
-    "gulp": "^3.9.1",
-    "gulp-edgejs": "^0.2.4",
+  "scripts": {
+    "dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --html",
+    "html": "gulp html"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.10",
+    "bootstrap": "4",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "2.0.1",
+    "cross-env": "^5.2.0",
+    "css-mqpacker": "^7.0.0",
+    "font-awesome": "4",
+    "gulp": "^4.0.0",
     "gulp-nunjucks-render": "^2.2.2",
-    "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-watch": "^5.0.0",
-    "st": "^1.2.2"
+    "gulp-watch": "^5.0.1",
+    "laravel-mix": "^4.0.14",
+    "lodash": "^4.17.11",
+    "popper.js": "^1.14.7",
+    "sass": "^1.17.2",
+    "sass-loader": "7.*",
+    "vue-template-compiler": "^2.6.8"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
