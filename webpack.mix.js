@@ -15,6 +15,7 @@ if (process.env.PROJECT) {
 }
 
 if (name) {
+    
     mix.options({
         postCss: [
             autoprefixer({
@@ -33,8 +34,12 @@ if (name) {
     if (yargs.server) {
         server(name)
     }
-    mix.sass('src/' + name + '/sass/' + scss_file, 'dist/' + name + '/public/css')
-    mix.js('src/' + name + '/js/' + js_file, 'dist/' + name + '/public/js')
+    if (yargs.new_project) {
+        mix.copyDirectory('src/default', 'src/' + name)
+    } else {
+        mix.sass('src/' + name + '/sass/' + scss_file, 'dist/' + name + '/public/css')
+        mix.js('src/' + name + '/js/' + js_file, 'dist/' + name + '/public/js')
+    }
 } else {
     cmd_note();
 }
