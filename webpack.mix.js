@@ -15,7 +15,7 @@ if (process.env.NAME) {
 }
 
 if (name) {
-    
+
     mix.options({
         postCss: [
             autoprefixer({
@@ -82,7 +82,8 @@ function server(name) {
         files: [
             './dist/**/*.html',
             './dist/**/public/css/*.css',
-            './dist/**/public/js/*.js'
+            './dist/**/public/js/*.js',
+            './src/' + name + '/data.js'
         ],
         reload: true,
         open: false,
