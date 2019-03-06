@@ -8,8 +8,8 @@ var name = null;
 
 require('dotenv').config();
 
-if (process.env.PROJECT) {
-    name = process.env.PROJECT;
+if (process.env.NAME) {
+    name = process.env.NAME;
 } else {
     return cmd_note();
 }
@@ -34,7 +34,7 @@ if (name) {
     if (yargs.server) {
         server(name)
     }
-    if (yargs.new_project) {
+    if (yargs.new) {
         mix.copyDirectory('src/default', 'src/' + name)
     } else {
         mix.sass('src/' + name + '/sass/' + scss_file, 'dist/' + name + '/public/css')
