@@ -1,2 +1,128 @@
 @import './mixin';
 @import './global';
+@import './header';
+.text-primary {
+    color: #1ee2e7;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.main-visual {
+    position: relative;
+    height: 60vh;
+}
+main{
+    height: 60vh;
+    width: 100%;
+    background: #141e30;
+    background: -webkit-linear-gradient(to top, #141e30, #243b55);
+    background: linear-gradient(to top, #141e30, #243b55);
+}
+.box {
+    height: 45vh;
+    align-items: center;
+    @include max-xl {
+        height: 35vh;
+    }
+    @include max-md {
+        height: 35vh;
+    }
+}
+.synopsis{
+    color: white;
+    text-align: center;
+}
+
+.synopsis__header{
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.synopsis__description{
+    font-size: 1.1em;
+    opacity: 0.5;
+}
+
+#bouncyBall {
+    background-image: url('https://images4.alphacoders.com/177/thumb-1920-177606.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include max-xl {
+        height: 55vh;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px 8px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    i {
+        font-size: 15pt;
+        margin-right: 5px;
+    }
+    &:hover {
+        background-color: #fff;
+        color: darkblue;
+    }
+}
+.start-page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 0;
+    
+    a{
+        display: block;
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        text-align: center;
+        z-index: 3;
+        width: 100px;
+        height: 100px;
+        font-size: 22px;
+        line-height: 22px;
+        padding: 25px 0 25px 0;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            color: #fe5d55;
+            background-color: #fff;
+            
+        }
+    }
+}
+.line-page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 0;
+    height: 200px;
+    overflow-y: hidden;
+    &-line {
+        position: absolute;
+        display: block;
+        height: 100%;
+        background-color: #fff;
+        width: 3px;
+        z-index: 1;
+        
+    }
+}
