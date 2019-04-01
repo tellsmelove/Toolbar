@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/Toolbar/js/app.js":
-/*!*******************************!*\
-  !*** ./src/Toolbar/js/app.js ***!
-  \*******************************/
+/***/ "./src/jolli/js/app.js":
+/*!*****************************!*\
+  !*** ./src/jolli/js/app.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -248,10 +248,10 @@ window.requestAnimFrame = function () {
 
 /***/ }),
 
-/***/ "./src/Toolbar/sass/app.scss":
-/*!***********************************!*\
-  !*** ./src/Toolbar/sass/app.scss ***!
-  \***********************************/
+/***/ "./src/jolli/sass/app.scss":
+/*!*********************************!*\
+  !*** ./src/jolli/sass/app.scss ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -260,14 +260,14 @@ window.requestAnimFrame = function () {
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************!*\
-  !*** multi ./src/Toolbar/js/app.js ./src/Toolbar/sass/app.scss ***!
-  \*****************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./src/jolli/js/app.js ./src/jolli/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/kimtrong/learning/Vuta/Toolbar/src/Toolbar/js/app.js */"./src/Toolbar/js/app.js");
-module.exports = __webpack_require__(/*! /home/kimtrong/learning/Vuta/Toolbar/src/Toolbar/sass/app.scss */"./src/Toolbar/sass/app.scss");
+__webpack_require__(/*! /home/kimtrong/learning/Vuta/Jollibee/Jolli/src/jolli/js/app.js */"./src/jolli/js/app.js");
+module.exports = __webpack_require__(/*! /home/kimtrong/learning/Vuta/Jollibee/Jolli/src/jolli/sass/app.scss */"./src/jolli/sass/app.scss");
 
 
 /***/ })
